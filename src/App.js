@@ -93,7 +93,19 @@ function App() {
       title: e.target.value,
       status: updateData.status ? true : false
     }
-    setUpdateData(newEntry);
+    // Update database
+    fetch(`http://localhost:8000/tasks/${updateData.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newEntry)
+    })
+    .then(res => res.json())
+    .then(data => {
+      setUpdateData(data);
+    })
+    /*setUpdateData(newEntry);*/
   }
 
   // Update task
