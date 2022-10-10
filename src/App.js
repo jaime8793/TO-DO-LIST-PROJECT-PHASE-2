@@ -22,11 +22,17 @@ function App() {
 
 
   //add new task
-  const addTask = (e) => { //
+  const addTask = (e) => { 
+    let num = toDo.length + 1;
+    let newEntry = { "id": num, "title": newTask, "status": false };
+    setTodo([...toDo, newEntry]);
+    setNewTask('');
   }
 
   //Delete task
-  const deleteTask = (id) => { //
+  const deleteTask = (id) => { 
+    let newTasks = toDo.filter((task) => task.id !== id);
+    setTodo(newTasks);
   }
 
   //Mark task as done
@@ -73,10 +79,12 @@ function App() {
           <input
             className='form-control form-control-lg'
             placeholder='Add new task'
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
           />
         </div>
         <div className='col-auto'>
-          <button className='btn btn-success btn-lg btn-block' >Add</button>
+          <button className='btn btn-success btn-lg btn-block'  onClick={addTask}>Add</button>
         </div>
       </div>
       <br></br>
@@ -106,7 +114,9 @@ function App() {
                 <span title='Edit'>
                   <FontAwesomeIcon icon={faPen} />
                 </span>
-                <span title ="Delete">
+                <span title ="Delete"
+                onClick={() => deleteTask(task.id)}>
+                
                   <FontAwesomeIcon icon={faTrash} />
                 </span>
               </div>
