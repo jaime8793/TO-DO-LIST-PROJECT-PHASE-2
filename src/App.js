@@ -43,6 +43,7 @@ function App() {
 
   //Update task
   const updateTask = (id) => { //
+  
   }
 
 
@@ -52,6 +53,35 @@ function App() {
       <br></br>
       <h2>(James' To Do List App)</h2>
       <br></br>
+
+      {/*update task*/}
+      <div className='row'>
+        <div className='col-md-12'>
+          <input 
+          className='form-control form-control-lg'
+          />
+          </div>
+          <div className='col-auto'>
+          <button className='btn btn-success btn-lg btn-block' >Update</button>
+          <button className='btn btn-danger btn-lg btn-block' >Cancel</button>
+        </div>
+      </div>
+      <br/>
+      {/*add new task*/}
+      <div className='row'>
+        <div className='col'>
+          <input
+            className='form-control form-control-lg'
+            placeholder='Add new task'
+          />
+        </div>
+        <div className='col-auto'>
+          <button className='btn btn-success btn-lg btn-block' >Add</button>
+        </div>
+      </div>
+      <br></br>
+
+
 
       {/*Dispaly To */}
 
@@ -70,13 +100,13 @@ function App() {
 
               </div>
               <div className="iconsWrap">
-                <span>
+                <span title='Completed/Not Completed'>
                   <FontAwesomeIcon icon={faCircleCheck} />
                 </span>
-                <span>
+                <span title='Edit'>
                   <FontAwesomeIcon icon={faPen} />
                 </span>
-                <span>
+                <span title ="Delete">
                   <FontAwesomeIcon icon={faTrash} />
                 </span>
               </div>
