@@ -10,7 +10,7 @@ import {
 function App() {
 
   const [toDo, setTodo] = useState([
-    { "id": 1, "title": "Learn React", "status": false },
+    { "id": 1, "title": "Learn React", "status": true },
     { "id": 2, "title": "Learn Angular", "status": false }
   ]);
 
@@ -57,14 +57,21 @@ function App() {
       {toDo && toDo.length ? '' : 'No tasks to do'}
 
       {toDo && toDo
-      .map((task, index) => {
-      return(
-      <React.Fragment key={task.id}>
-        <span className="taskText">{task.title}</span>
-      </React.Fragment>
-      )
-})
-    }
+        .map((task, index) => {
+          return (
+            <React.Fragment key={task.id}>
+              <div className="col taskBg">
+                <div className={task.status ? 'done' : ''}></div>
+                <span className='taskText'>{index + 1}</span>
+                <span className="taskText">{task.title}</span>
+
+              </div>
+
+
+            </React.Fragment>
+          )
+        })
+      }
 
     </div>
   );
