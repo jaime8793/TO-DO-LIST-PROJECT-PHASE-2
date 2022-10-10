@@ -66,6 +66,17 @@ function App() {
                 <span className="taskText">{task.title}</span>
 
               </div>
+              <div className="iconsWrap">
+                <span>
+                  <FontAwesomeIcon icon={faCircleCheck} className="icon" onClick={() => markDone(task.id)} />
+                </span>
+                <span>
+                  <FontAwesomeIcon icon={faPen} className="icon" onClick={() => updateTask(task.id)} />
+                </span>
+                <span>
+                  <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => deleteTask(task.id)} />
+                </span>
+              </div>
 
 
             </React.Fragment>
