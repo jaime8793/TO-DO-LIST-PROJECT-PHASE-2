@@ -49,14 +49,26 @@ function App() {
 
   //Cancel update
   const cancelUpdate = () => {//
+    setUpdateData(''); 
   }
 
   //Change the task
   const changeTask = (e) => { //
+    let newEntry = { 
+      "id": updateData.id, 
+      "title": e.target.value, 
+      "status": updateData.status ? true : false
+    };
+    setUpdateData(newEntry);
   }
 
   //Update task
   const updateTask = (id) => { //
+    let filterRecords = [...toDo].filter(task => task.id !== updateData.id);
+    let updatedObject = [...filterRecords, updateData];
+    setTodo(updatedObject);
+    setUpdateData('');
+
   
   }
 
@@ -72,11 +84,15 @@ function App() {
       <div className='row'>
         <div className='col-md-12'>
           <input 
+          value = {updateData && updateData.title}
+          onChange = { (e) => changeTask(e) }
           className='form-control form-control-lg'
           />
           </div>
           <div className='col-auto'>
-          <button className='btn btn-success btn-lg btn-block' >Update</button>
+          <button
+          onClick={updateTask}
+          className='btn btn-success btn-lg btn-block' >Update</button>
           <button className='btn btn-danger btn-lg btn-block' >Cancel</button>
         </div>
       </div>
@@ -121,9 +137,20 @@ function App() {
                 >
                   <FontAwesomeIcon icon={faCircleCheck} />
                 </span>
-                <span title='Edit'>
+
+                {task.status ? null : (
+                  <span title='Edit'
+                    onClick = {() => setUpdateData({
+                      id : task.id,
+                      title : task.title,
+                      status : task.status ? true : false
+                    })}
+                    >
+
                   <FontAwesomeIcon icon={faPen} />
-                </span>
+                </span> )}
+
+            
                 <span title ="Delete"
                 onClick={() => deleteTask(task.id)}>
                 
