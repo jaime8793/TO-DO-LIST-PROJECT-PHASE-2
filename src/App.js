@@ -93,7 +93,10 @@ function App() {
           <button
           onClick={updateTask}
           className='btn btn-success btn-lg btn-block' >Update</button>
-          <button className='btn btn-danger btn-lg btn-block' >Cancel</button>
+          <button 
+          className='btn btn-danger btn-lg btn-block' 
+          onClick={cancelUpdate}>Cancel</button>
+          
         </div>
       </div>
       <br/>
