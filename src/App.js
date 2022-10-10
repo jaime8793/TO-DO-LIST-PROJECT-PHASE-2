@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import AddTaskForm from './Components/AddTaskForm';
 import UpdateForm from './Components/UpdateForm';
 import ToDo from './Components/ToDo';
@@ -16,14 +16,39 @@ function App() {
   const [newTask, setNewTask] = useState('');
   const [updateData, setUpdateData] = useState('');
 
+  useEffect(() => {
+    // Get Tasks from database
+    fetch('http://localhost:8000/tasks')
+    .then(res => res.json())
+    .then(data => {
+      setToDo(data);
+    })
+  }, []);
+
+
+
   // Add task 
   ///////////////////////////
   const addTask = () => {
     if(newTask) {
       let num = toDo.length + 1; 
       let newEntry = { id: num, title: newTask, status: false }
-      setToDo([...toDo, newEntry])
-      setNewTask('');
+      // Add to database
+      fetch('http://localhost:8000/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newEntry)
+      })
+      .then(res => res.json())
+      .then(data => {
+        setToDo([...toDo, data]);
+        setNewTask('');
+      })
+
+      /*setToDo([...toDo, newEntry])
+      setNewTask('');*/
     }
   }
 
@@ -31,7 +56,15 @@ function App() {
   ///////////////////////////
   const deleteTask = (id) => {
     let newTasks = toDo.filter( task => task.id !== id)
+    // Delete from database
+    fetch(`http://localhost:8000/tasks/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => {
     setToDo(newTasks);
+  }
+  )
   }
 
   // Mark task as done or completed
