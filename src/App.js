@@ -123,6 +123,7 @@ function App() {
       {toDo && toDo.length ? '' : 'No tasks to do'}
 
       {toDo && toDo
+      .sort((a,b)=> a.id > b.id ? 1 : -1)
 
         .map((task, index) => {
           return (
