@@ -1,44 +1,71 @@
+body {
+  background-color: #333;
+  color: #fff;
+  background-image: url(./5027403.jpg)
+}
+
 .App {
   text-align: center;
 }
 
 .taskBg {
-  background-color: #321fae;
-  margin-bottom : 20px;
-  border-radius: 5px;
+  background-color: rgb(7, 95, 178);
+  border-radius: 6px;
+  margin-bottom: 20px;
   padding: 10px 140px 10px 15px;
   text-align: left;
   font-size: 22px;
   position: relative;
-
-}
-
-.taskBg:hover {
-  background-color: #3f2baf;
 }
 
 .taskBg div {
-  display: flex !important;
+  display: flex;
   align-items: center;
+}
+
+.taskNumber {
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  margin-right: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskBg .taskText {
+  flex: 1;
 }
 
 .taskBg .done .taskText {
   text-decoration: line-through;
   opacity: 0.3;
-  flex: 1;
 }
 
-.taskNumber {
-  color : #fff;
-  border : 1px solid #fff;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  text-align: center;
-  margin-right: 8px;
+.taskBg .iconsWrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  width: auto;
+  display: inline-block;
+}
 
+.taskBg .iconsWrap span {
+  display: inline-block;
+  margin: 0px 10px 0 10px;
+  cursor: pointer;
+  color: #00ff89;
+}
+
+.taskBg .iconsWrap span:hover {
+  color: yellow;
+}
+
+.mr-20 {
+  margin-right: 20px;
 }

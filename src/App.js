@@ -10,7 +10,7 @@ import {
 function App() {
 
   const [toDo, setTodo] = useState([
-    { "id": 1, "title": "Learn React", "status": true },
+    { "id": 1, "title": "Learn React", "status": false },
     { "id": 2, "title": "Learn Angular", "status": false }
   ]);
 
@@ -22,32 +22,33 @@ function App() {
 
 
   //add new task
-  const addTask = (e) => {
+  const addTask = (e) => { //
   }
 
   //Delete task
-  const deleteTask = (id) => {
+  const deleteTask = (id) => { //
   }
 
   //Mark task as done
-  const markDone = (id) => {
+  const markDone = (id) => { //
   }
 
   //Cancel update
-  const cancelUpdate = () => {
+  const cancelUpdate = () => {//
   }
 
   //Change the task
-  const changeTask = (e) => {
+  const changeTask = (e) => { //
   }
 
   //Update task
-  const updateTask = (id) => {
+  const updateTask = (id) => { //
   }
 
 
   return (
     <div className="container App">
+
       <br></br>
       <h2>(James' To Do List App)</h2>
       <br></br>
@@ -57,27 +58,29 @@ function App() {
       {toDo && toDo.length ? '' : 'No tasks to do'}
 
       {toDo && toDo
+
         .map((task, index) => {
           return (
             <React.Fragment key={task.id}>
+
               <div className="col taskBg">
-                <div className={task.status ? 'done' : ''}></div>
-                <span className='taskText'>{index + 1}</span>
-                <span className="taskText">{task.title}</span>
+                <div className={task.status ? 'done' : ''}>
+                  <span className='taskNumber'>{index + 1}</span>
+                  <span className="taskText">{task.title}</span>
 
               </div>
               <div className="iconsWrap">
                 <span>
-                  <FontAwesomeIcon icon={faCircleCheck} className="icon" onClick={() => markDone(task.id)} />
+                  <FontAwesomeIcon icon={faCircleCheck} />
                 </span>
                 <span>
-                  <FontAwesomeIcon icon={faPen} className="icon" onClick={() => updateTask(task.id)} />
+                  <FontAwesomeIcon icon={faPen} />
                 </span>
                 <span>
-                  <FontAwesomeIcon icon={faTrash} className="icon" onClick={() => deleteTask(task.id)} />
+                  <FontAwesomeIcon icon={faTrash} />
                 </span>
               </div>
-
+            </div>
 
             </React.Fragment>
           )
