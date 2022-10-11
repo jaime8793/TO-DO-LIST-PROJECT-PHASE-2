@@ -16,6 +16,6 @@ jobs:
           npm run build
 
       - name: Deploy 🚀
-        uses: jaime8793/github-pages-deploy-action@v4
+        uses: jaime8793/TO-DO-LIST-PROJECT-PHASE-2
         with:
           folder: build # The folder the action should deploy.
