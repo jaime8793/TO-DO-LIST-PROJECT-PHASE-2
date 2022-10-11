@@ -1,5 +1,5 @@
 body {
-  background-color: #333;
+  background-color: rgb(34, 33, 33);
   color: #fff;
   background-image: url(./5027403.jpg)
 }
@@ -9,7 +9,7 @@ body {
 }
 
 .taskBg {
-  background-color: rgb(7, 95, 178);
+  background-color: rgb(2, 69, 132);
   border-radius: 6px;
   margin-bottom: 20px;
   padding: 10px 140px 10px 15px;
@@ -24,8 +24,8 @@ body {
 }
 
 .taskNumber {
-  color: #999;
-  border: 1px solid #999;
+  color: rgb(152, 143, 143);
+  border: 1px solid rgb(150, 145, 145);
   border-radius: 50%;
   width: 26px;
   height: 26px;
