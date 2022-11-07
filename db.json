@@ -1,18 +1,7 @@
 {
   "tasks": [
     {
-      "id": "100",
-      "title": "This was a hard one",
-      "status": false
-    },
-    {
-      "id": "200",
-      "title": "This was one was a bit easier",
-      "status": false
-    },
-    {
-      "id": 2,
-      "title": "hey you",
+      "title": "Watch Halland take the Ballon'Dor",
       "status": false
     }
   ]

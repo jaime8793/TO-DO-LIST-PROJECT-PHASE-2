@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     // Get Tasks from database
-    fetch('http://localhost:8000/tasks')
+    fetch('https://my-json-server.typicode.com/jaime8793/To-DO-LIST-PROJECT-PHASE-2/tasks')
     .then(res => res.json())
     .then(data => {
       setToDo(data);
@@ -34,7 +34,7 @@ function App() {
       let num = toDo.length + 1; 
       let newEntry = { id: num, title: newTask, status: false }
       // Add to database
-      fetch('http://localhost:8000/tasks', {
+      fetch('https://my-json-server.typicode.com/jaime8793/To-DO-LIST-PROJECT-PHASE-2/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ function App() {
   const deleteTask = (id) => {
     let newTasks = toDo.filter( task => task.id !== id)
     // Delete from database
-    fetch(`http://localhost:8000/tasks/${id}`, {
+    fetch(`https://my-json-server.typicode.com/jaime8793/To-DO-LIST-PROJECT-PHASE-2/tasks${id}`, {
       method: 'DELETE'
     })
     .then(res => res.json())
@@ -94,7 +94,7 @@ function App() {
       status: updateData.status ? true : false
     }
     // Update database
-    fetch(`http://localhost:8000/tasks/${updateData.id}`, {
+    fetch(`https://my-json-server.typicode.com/jaime8793/To-DO-LIST-PROJECT-PHASE-2/tasks${updateData.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
